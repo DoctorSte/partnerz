@@ -1,7 +1,7 @@
 import Head from "next/head";
 import "tailwindcss/tailwind.css";
 import Airtable from "airtable";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Founder from "../components/Founder";
 import Link from "next/link";
 import { ChevronRightIcon } from "@heroicons/react/solid";
@@ -11,19 +11,58 @@ import makeAnimated from "react-select/animated";
 const base = new Airtable({ apiKey: "keynbSweRZKkwmlQX" }).base(
   "appvWRAi4zf0BYTR3"
 );
+const FILTER_STATE = {
+  expertise: [],
+  seeking: [],
+  location: [],
+};
 
 export default function Home() {
-  const [founders, setFounders] = useState([]);
+  const [foundersState, setFoundersState] = useState([]);
+  const [filterState, setFilterState] = useState(FILTER_STATE);
+  const foundersRef = useRef([]);
   // Here we're getting the values from Airtable
   useEffect(() => {
     base("Looking for Cofounders")
       .select({ view: "Grid view" })
       .eachPage((records, fetchNextPage) => {
-        setFounders(records);
+        foundersRef.current = records;
+        setFoundersState(records);
         console.log(records);
         fetchNextPage();
       });
   }, []);
+
+  useEffect(() => {
+    filterFounders();
+  }, [filterState]);
+
+  const filterFounders = () => {
+    let filterValidation = Object.entries(filterState).reduce(
+      (acc, [key, val]) => {
+        if (val.length > 0) {
+          acc.push({
+            [key]: val.length === 0,
+          });
+        }
+        return acc;
+      },
+      []
+    );
+
+    const founders = foundersRef.current.filter(({ fields }) => {
+      const items = {
+        expertise: fields["I'm a ... [Background]"][0],
+        seeking: fields["Looking for ..."][0],
+      };
+      const isFilterValid = filterValidation.reduce((acc, curr) => {
+        const [key] = Object.keys(curr);
+        return acc && filterState[key].includes(items[key]);
+      }, true);
+      return isFilterValid;
+    });
+    setFoundersState(founders);
+  };
 
   const options = [
     { value: "TECH", label: "Tech" },
@@ -43,6 +82,15 @@ export default function Home() {
     }),
   };
 
+  // founder.fields["I'm a ... [Background]"]
+  const setFilters = (filterType, data) => {
+    const values = data.map(({ value }) => value);
+    setFilterState((filters) => ({
+      ...filters,
+      [filterType]: values,
+    }));
+  };
+
   return (
     <>
       <Head>
@@ -58,12 +106,13 @@ export default function Home() {
               <ChevronRightIcon className="h-5 w-5" />
             </span>
             <span className="flex items-center gap-4">
-              I&apos;m a:
+              Cofounder background:
               <Select
                 isMulti
                 className="min-w-max w-40"
                 styles={customStyles}
                 options={options}
+                onChange={(values) => setFilters("expertise", values)}
               />
             </span>
             <span className="flex items-center gap-4">
@@ -73,6 +122,7 @@ export default function Home() {
                 className="min-w-max w-40"
                 styles={customStyles}
                 options={options}
+                onChange={(values) => setFilters("seeking", values)}
               />
             </span>
             <span className="flex items-center gap-4">
@@ -82,13 +132,14 @@ export default function Home() {
                 className="min-w-max w-40"
                 styles={customStyles}
                 options={location}
+                onChange={(values) => setFilters("location", values)}
               />
             </span>
           </div>
         </div>
 
         <div className="grid grid-cols-5 gap-4">
-          {founders.map((founder) => (
+          {foundersState.map((founder) => (
             <Founder key={founder.id} founder={founder} />
           ))}
         </div>
