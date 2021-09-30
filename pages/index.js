@@ -14,7 +14,7 @@ const base = new Airtable({ apiKey: "keynbSweRZKkwmlQX" }).base(
 
 export default function Home() {
   const [founders, setFounders] = useState([]);
-
+  // Here we're getting the values from Airtable
   useEffect(() => {
     base("Looking for Cofounders")
       .select({ view: "Grid view" })
@@ -26,10 +26,15 @@ export default function Home() {
   }, []);
 
   const options = [
-    { value: "marketing", label: "Marketing" },
-    { value: "business", label: "Business" },
-    { value: "tech", label: "Tech" },
+    { value: "TECH", label: "Tech" },
+    { value: "DESIGN", label: "Design" },
+    { value: "SALES", label: "Sales" },
+    { value: "MARKETING", label: "Marketing" },
+    { value: "HR", label: "Human Resources" },
   ];
+
+  // We need to get location from Airtable + list of locations
+  const location = [{ value: "UK", label: "UK" }];
 
   const customStyles = {
     option: (provided, state) => ({
@@ -68,6 +73,15 @@ export default function Home() {
                 className="min-w-max w-40"
                 styles={customStyles}
                 options={options}
+              />
+            </span>
+            <span className="flex items-center gap-4">
+              Location:
+              <Select
+                isMulti
+                className="min-w-max w-40"
+                styles={customStyles}
+                options={location}
               />
             </span>
           </div>
