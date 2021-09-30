@@ -6,7 +6,7 @@ import Founder from "../components/Founder";
 import Link from "next/link";
 import { ChevronRightIcon } from "@heroicons/react/solid";
 import Select from "react-select";
-import makeAnimated from "react-select/animated";
+import locations from "./api/locations.js";
 
 const base = new Airtable({ apiKey: "keynbSweRZKkwmlQX" }).base(
   "appvWRAi4zf0BYTR3"
@@ -54,6 +54,7 @@ export default function Home() {
       const items = {
         expertise: fields["I'm a ... [Background]"][0],
         seeking: fields["Looking for ..."][0],
+        location: fields["Your location (country)"],
       };
       const isFilterValid = filterValidation.reduce((acc, curr) => {
         const [key] = Object.keys(curr);
@@ -73,7 +74,6 @@ export default function Home() {
   ];
 
   // We need to get location from Airtable + list of locations
-  const location = [{ value: "UK", label: "UK" }];
 
   const customStyles = {
     option: (provided, state) => ({
@@ -102,7 +102,7 @@ export default function Home() {
           <h3>Cofounders:</h3>
           <div className="flex gap-4">
             <span className="py-1 px-2 bg-indigo-500 rounded-md flex items-center">
-              Sort by
+              Filter by
               <ChevronRightIcon className="h-5 w-5" />
             </span>
             <span className="flex items-center gap-4">
@@ -131,7 +131,7 @@ export default function Home() {
                 isMulti
                 className="min-w-max w-40"
                 styles={customStyles}
-                options={location}
+                options={locations}
                 onChange={(values) => setFilters("location", values)}
               />
             </span>
