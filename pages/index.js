@@ -223,8 +223,7 @@ export default function Home() {
             rel="noreferrer"
           >
             IH Ste
-          </a>{" "}
-          from <a href="https://weareloot.com">LOOT</a>
+          </a>
         </p>
       </footer>
     </>
