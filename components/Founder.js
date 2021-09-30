@@ -19,8 +19,20 @@ const Founder = ({ founder }) => {
             <br /> {founder.fields["Cofounder Name"]}
           </p>
         </div>
-        <p>I&#39;m a {founder.fields["I'm a ... [Background]"]} person</p>
-        <p>looking for a {founder.fields["Looking for ..."]} person</p>
+        <p>
+          is a
+          <span className="py-1 px-2 mx-1 bg-indigo-600 rounded-full text-sm uppercase tracking-wide">
+            {founder.fields["I'm a ... [Background]"]}
+          </span>
+          person
+        </p>
+        <p>
+          looking for a
+          <span className="py-1 px-2 mx-1 bg-blue-600 rounded-full text-sm uppercase tracking-wide">
+            {founder.fields["Looking for ..."]}
+          </span>
+          person
+        </p>
         <p className="text-xs text-gray-400">
           Location: {founder.fields["Your location (country)"]}{" "}
         </p>
