@@ -104,16 +104,17 @@ export default function Home() {
           <div className="flex flex-col gap-4 col-span-2 p-20">
             <h1 className="text-4xl font-bold">Find a Cofounder!</h1>
             <p className="text-yellow-50 text-lg">
-              I'm Ste and I&apos;ve built a directory a cofounders to help
+              I&apos;m Ste and I&apos;ve built a directory a cofounders to help
               people find each other easily. If you&apos;re looking to partner
               up, add your info below. Browse the directory, use the fancy
-              filters and find who you're looking for.
+              filters and find who you&apos;re looking for.
             </p>
             <p className="opacity-30 text-xs">
               Illustration by{" "}
               <a
                 href="https://www.figma.com/community/file/890095002328610853"
                 target="_blank"
+                rel="noreferrer"
               >
                 Alzea ⟶
               </a>
@@ -216,7 +217,11 @@ export default function Home() {
         </div>
         <p>
           Made with 💖 by{" "}
-          <a href="https://www.indiehackers.com/SteLofo" target="_blank">
+          <a
+            href="https://www.indiehackers.com/SteLofo"
+            target="_blank"
+            rel="noreferrer"
+          >
             IH Ste
           </a>{" "}
           from <a href="https://weareloot.com">LOOT</a>
