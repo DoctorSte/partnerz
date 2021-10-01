@@ -24,16 +24,16 @@ const Founder = ({ founder }) => {
           </div>
         </div>
 
-        <p>
+        <p className="mb-2">
           is a
           <span className="py-1 px-2 mx-1 bg-indigo-600 rounded-full text-sm uppercase tracking-wide">
             {founder.fields["I'm a ... [Background]"]}
           </span>
           person
         </p>
-        <p>seeking a</p>
         <p>
-          <span className="py-1 px-2 mr-1 bg-blue-600 rounded-full text-sm uppercase tracking-wide">
+          seeking a
+          <span className="py-1 px-2 mx-1 bg-green-600 rounded-full text-sm uppercase tracking-wide">
             {founder.fields["Looking for ..."]}
           </span>
           cofounder
@@ -53,8 +53,9 @@ const Founder = ({ founder }) => {
         </div>
         <ShowMoreText
           lines={3}
-          more="More"
-          less="Less"
+          more=" More"
+          less=" Less"
+          anchorClass="text-yellow-400 font-bold"
           className="text-sm text-gray-200 my-2"
           anchorClass="my-anchor-css-class"
           expanded={false}
