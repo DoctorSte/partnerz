@@ -57,7 +57,6 @@ const Founder = ({ founder }) => {
           less=" Less"
           anchorClass="text-yellow-400 font-bold"
           className="text-sm text-gray-200 my-2"
-          anchorClass="my-anchor-css-class"
           expanded={false}
           truncatedEndingComponent={"... "}
         >

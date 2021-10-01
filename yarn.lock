@@ -200,10 +200,10 @@
   "resolved" "https://registry.npmjs.org/@next/env/-/env-11.1.2.tgz"
   "version" "11.1.2"
 
-"@next/eslint-plugin-next@11.1.0":
-  "integrity" "sha512-HjLhyshV+ANzTDCFLN1UZMQIyYwZkCdhydfIcOQQVCrqLSd0hCi+AYIGqWfDPhXmP7aeOuKQsmhRmdennQV2qw=="
-  "resolved" "https://registry.npmjs.org/@next/eslint-plugin-next/-/eslint-plugin-next-11.1.0.tgz"
-  "version" "11.1.0"
+"@next/eslint-plugin-next@11.1.2":
+  "integrity" "sha512-cN+ojHRsufr9Yz0rtvjv8WI5En0RPZRJnt0y16Ha7DD+0n473evz8i1ETEJHmOLeR7iPJR0zxRrxeTN/bJMOjg=="
+  "resolved" "https://registry.npmjs.org/@next/eslint-plugin-next/-/eslint-plugin-next-11.1.2.tgz"
+  "version" "11.1.2"
   dependencies:
     "glob" "7.1.7"
 
@@ -1295,12 +1295,12 @@
   "resolved" "https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz"
   "version" "4.0.0"
 
-"eslint-config-next@11.1.0":
-  "integrity" "sha512-8KeBg3qUEhM06vhzvs9MwZl2lsSfu3bm0wa3QVTc9kBdFxSRY6Gu/1GM0FKzWG0sQmWqzjLbynazczu/037Ibw=="
-  "resolved" "https://registry.npmjs.org/eslint-config-next/-/eslint-config-next-11.1.0.tgz"
-  "version" "11.1.0"
+"eslint-config-next@11.1.2":
+  "integrity" "sha512-dFutecxX2Z5/QVlLwdtKt+gIfmNMP8Qx6/qZh3LM/DFVdGJEAnUKrr4VwGmACB2kx/PQ5bx3R+QxnEg4fDPiTg=="
+  "resolved" "https://registry.npmjs.org/eslint-config-next/-/eslint-config-next-11.1.2.tgz"
+  "version" "11.1.2"
   dependencies:
-    "@next/eslint-plugin-next" "11.1.0"
+    "@next/eslint-plugin-next" "11.1.2"
     "@rushstack/eslint-patch" "^1.0.6"
     "@typescript-eslint/parser" "^4.20.0"
     "eslint-import-resolver-node" "^0.3.4"
