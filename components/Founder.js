@@ -1,6 +1,6 @@
 import React from "react";
 import ShowMoreText from "react-show-more-text";
-import { LocationMarkerIcon } from "@heroicons/react/solid";
+import { LocationMarkerIcon, AtSymbolIcon } from "@heroicons/react/solid";
 
 const Founder = ({ founder }) => {
   return (
@@ -13,7 +13,7 @@ const Founder = ({ founder }) => {
                 ? founder.fields["Profile Picture"][0].url
                 : "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/VAN_CAT.png/440px-VAN_CAT.png"
             }
-            className="rounded-full w-12 h-12"
+            className="rounded-full w-12 h-12 bg-gray-900"
           />
           <div>
             <p className="text-xs text-gray-400">Name:</p>
@@ -39,7 +39,7 @@ const Founder = ({ founder }) => {
           cofounder
         </p>
 
-        <div className="flex gap-2 mt-3">
+        <div className="flex gap-2 mt-3 mb-1">
           <p className="text-xs text-gray-400 flex">
             <LocationMarkerIcon className="w-4" />
             Location: {founder.fields["Your location (country)"]}{" "}
@@ -63,7 +63,13 @@ const Founder = ({ founder }) => {
           Idea Description: {founder.fields["Idea Description"]}
         </ShowMoreText>
 
-        <a href={`mailto: ${founder.fields["Email address"]}`}>Contact</a>
+        <a
+          className=" flex text-gray-400"
+          href={`mailto: ${founder.fields["Email address"]}`}
+        >
+          <AtSymbolIcon className="w-4 mr-1" />
+          Contact
+        </a>
       </div>
     </>
   );

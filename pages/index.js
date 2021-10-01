@@ -101,7 +101,7 @@ export default function Home() {
       </Head>
       <main className=" bg-gray-900 text-white min-h-screen">
         <div className="grid grid-cols-1 md:grid-cols-3 items-end  bg-gradient-to-tr from-indigo-600 to-blue-900">
-          <div className="flex flex-col gap-4 col-span-2 p-20">
+          <div className="flex flex-col gap-4 col-span-2 p-10 lg:p-20">
             <h1 className="text-4xl font-bold">Find a Cofounder!</h1>
             <p className="text-yellow-50 text-lg">
               I&apos;m Ste and I&apos;ve built a directory a cofounders to help
@@ -132,7 +132,7 @@ export default function Home() {
         </div>
 
         <div className="flex flex-col gap-4 items-start justify-center p-12 sm:p-20">
-          <div className="flex flex-col lg:flex-row justify-between gap-4 w-full">
+          <div className="flex flex-col lg:flex-row justify-between gap-4 w-full items-center">
             <h3>
               Filters:{" "}
               <span className="py-1 px-2 mr-1 bg-gray-700 rounded-full text-sm uppercase tracking-wide">
@@ -140,7 +140,7 @@ export default function Home() {
               </span>
             </h3>
             <div className="flex gap-4 flex-col lg:flex-row">
-              <span className="py-1 px-2 bg-indigo-500 rounded-md flex items-center">
+              <span className="hidden lg:flex py-1 px-2 bg-indigo-500 rounded-md  items-center">
                 Filter by
                 <ChevronRightIcon className="h-5 w-5" />
               </span>
@@ -182,7 +182,7 @@ export default function Home() {
                 <Founder key={founder.id} founder={founder} />
               ))}
               <Link href="/newCofounder">
-                <div className="h-full w-full bg-gray-700 flex items-center justify-center rounded-md cursor-pointer">
+                <div className="py-20 w-full bg-gray-700 flex items-center justify-center rounded-md cursor-pointer">
                   + Add your info
                 </div>
               </Link>
@@ -200,17 +200,17 @@ export default function Home() {
         </div>
       </main>
 
-      <footer className="p-20 bg-gray-900 text-yellow-50 text-center">
+      <footer className="p-24 bg-gray-900 text-yellow-50 text-center">
         <div className="fixed bottom-10 left-10">
           <Link href="/newCofounder">
-            <button className="p-4 rounded-md bg-indigo-500 hover:bg-indigo-800 w-40 flex justify-center shadow-2xl">
+            <button className="p-4 rounded-md bg-indigo-500 hover:bg-indigo-800 w-30 flex justify-center shadow-2xl">
               Add your info
             </button>
           </Link>
         </div>
         <div className="fixed bottom-10 right-10">
           <a href="mailto:st.dobrescu@gmail.com?subject=Feedback for Cofounders directory">
-            <button className="p-4 rounded-md bg-indigo-900 hover:bg-indigo-800 w-40 flex justify-center shadow-2xl">
+            <button className="p-4 rounded-md bg-indigo-900 hover:bg-indigo-800 w-30 flex justify-center shadow-2xl">
               Feedback?
             </button>
           </a>
