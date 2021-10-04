@@ -178,7 +178,7 @@ export default function Home() {
             </div>
           </div>
           {foundersState.length > 0 ? (
-            <div className="w-full grid grid-cols-1 sm:grid-cols-5 gap-4">
+            <div className="w-full grid grid-cols-1 sm:grid-cols-4 gap-4">
               {foundersState.map((founder) => (
                 <Founder key={founder.id} founder={founder} />
               ))}
