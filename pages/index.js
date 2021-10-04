@@ -104,10 +104,11 @@ export default function Home() {
           <div className="flex flex-col gap-4 col-span-2 p-10 lg:p-20">
             <h1 className="text-4xl font-bold">Find a Cofounder!</h1>
             <p className="text-yellow-50 text-lg">
-              I&apos;m Ste and I&apos;ve built a directory a cofounders to help
-              people find each other easily. If you&apos;re looking to partner
-              up, add your info below. Browse the directory, use the fancy
-              filters and find who you&apos;re looking for.
+              I&apos;m Ste and I&apos;ve built a directory of cofounders to help
+              people find each other easily. <br />
+              If you&apos;re looking to partner up, add your info below. Browse
+              through the directory, use the fancy filters and find who
+              you&apos;re looking for.
             </p>
             <p className="opacity-30 text-xs">
               Illustration by{" "}
