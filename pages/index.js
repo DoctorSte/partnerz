@@ -30,7 +30,7 @@ export default function Home() {
       .eachPage((records, fetchNextPage) => {
         foundersRef.current = records;
         setFoundersState(records);
-        console.log(records);
+
         fetchNextPage();
       });
   }, []);
